@@ -1,7 +1,30 @@
 import { Card } from "@/components/ui/card";
 import { Target, Users, Clock, Building, CheckCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const Differentials = () => {
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleItems(prev => prev.includes(index) ? prev : [...prev, index]);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    itemRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const differentials = [
     {
       icon: Target,
@@ -54,26 +77,38 @@ const Differentials = () => {
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           {differentials.map((item, index) => (
-            <Card key={index} className="group p-8 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
-              <div className="space-y-6 text-center">
-                {/* Icon */}
-                <div className="relative mx-auto w-fit">
-                  <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent-light rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="h-10 w-10 text-white" />
+            <div
+              key={index}
+              ref={(el) => itemRefs.current[index] = el}
+              data-index={index}
+              className={`transform transition-all duration-700 ${
+                visibleItems.includes(index) 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-10 opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <Card className="group p-8 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 h-full">
+                <div className="space-y-6 text-center">
+                  {/* Icon */}
+                  <div className="relative mx-auto w-fit">
+                    <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent-light rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-accent/25">
+                      <item.icon className="h-10 w-10 text-white" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-white/80 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-white/80 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))}
         </div>
 

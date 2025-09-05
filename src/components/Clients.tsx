@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Building2, Truck, Factory, Zap } from "lucide-react";
 import servicesImage from "@/assets/services-collage.jpg";
+import ClientCarousel from "./ClientCarousel";
 
 const Clients = () => {
   const clientTypes = [
@@ -26,14 +27,11 @@ const Clients = () => {
     }
   ];
 
-  // Placeholder client logos - in real scenario these would be actual client logos
-  const clientLogos = [
-    "CONSTRUTORA ABC",
-    "INDÚSTRIA XYZ", 
-    "LOGÍSTICA PRO",
-    "ENERGIA PLUS",
-    "OBRAS PRIME",
-    "INDUSTRIAL TECH"
+  const impactNumbers = [
+    { number: "50+", label: "Máquinas Atendidas", suffix: "" },
+    { number: "20+", label: "Clientes Satisfeitos", suffix: "" },
+    { number: "99", label: "Taxa de Satisfação", suffix: "%" },
+    { number: "15+", label: "Anos de Experiência", suffix: "" }
   ];
 
   return (
@@ -96,33 +94,25 @@ const Clients = () => {
               </p>
             </div>
 
-            {/* Client Logos Grid */}
-            <div className="space-y-4">
-              <h4 className="font-semibold text-primary">Empresas que confiam na Vector:</h4>
-              <div className="grid grid-cols-2 gap-4">
-                {clientLogos.map((client, index) => (
-                  <Card key={index} className="p-4 text-center border border-border hover:border-accent transition-colors">
-                    <div className="text-sm font-medium text-muted-foreground">
-                      {client}
-                    </div>
-                  </Card>
-                ))}
-              </div>
+            {/* Client Carousel */}
+            <div className="space-y-6">
+              <ClientCarousel />
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-accent">15+</div>
-                <div className="text-sm text-muted-foreground">Anos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-accent">500+</div>
-                <div className="text-sm text-muted-foreground">Máquinas</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-accent">99%</div>
-                <div className="text-sm text-muted-foreground">Satisfação</div>
+            {/* Impact Numbers */}
+            <div className="bg-muted/50 rounded-2xl p-6 space-y-4">
+              <h4 className="font-semibold text-primary text-center">Números de Impacto</h4>
+              <div className="grid grid-cols-2 gap-4">
+                {impactNumbers.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl font-bold text-accent">
+                      {stat.number}{stat.suffix}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

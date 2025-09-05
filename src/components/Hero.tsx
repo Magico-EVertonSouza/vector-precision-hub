@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-maintenance.jpg";
 
 const Hero = () => {
@@ -12,7 +12,7 @@ const Hero = () => {
           alt="Manutenção profissional de máquinas pesadas"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/70 to-primary/50" />
+        <div className="absolute inset-0 hero-video-overlay" />
       </div>
 
       {/* Content */}
@@ -38,9 +38,14 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               
-              <Button variant="secondary" size="xl" className="group">
-                <Phone className="mr-2 h-5 w-5" />
-                Contacto Direto
+              <Button 
+                variant="whatsapp" 
+                size="xl" 
+                className="group"
+                onClick={() => window.open('https://wa.me/351910000000', '_blank')}
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Fale no WhatsApp
               </Button>
             </div>
 

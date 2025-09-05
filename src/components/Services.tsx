@@ -1,40 +1,115 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Wrench, Zap, Droplets, Shield, AlertTriangle, ArrowRight } from "lucide-react";
+import { Wrench, Zap, Droplets, Shield, AlertTriangle, ArrowRight, Info } from "lucide-react";
+import { useState } from "react";
+import ServiceModal from "./ServiceModal";
 
 const Services = () => {
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const services = [
     {
       icon: Wrench,
       title: "Manutenção Mecânica",
       description: "Diagnóstico completo, reparos precisos e revisão total de sistemas mecânicos.",
-      features: ["Diagnóstico avançado", "Reparos especializados", "Revisão completa", "Peças originais"]
+      features: ["Diagnóstico avançado", "Reparos especializados", "Revisão completa", "Peças originais"],
+      fullDescription: "Nossa equipe especializada em manutenção mecânica oferece soluções completas para todos os tipos de máquinas industriais. Utilizamos tecnologia avançada de diagnóstico para identificar problemas antes que se tornem críticos.",
+      benefits: [
+        "Redução de custos operacionais",
+        "Maior vida útil dos equipamentos", 
+        "Minimização de paradas não programadas",
+        "Melhoria da eficiência produtiva"
+      ],
+      process: [
+        "Inspeção inicial e diagnóstico completo",
+        "Análise técnica e orçamento detalhado",
+        "Execução dos reparos com peças originais",
+        "Testes de funcionamento e certificação"
+      ]
     },
     {
       icon: Zap,
       title: "Manutenção Elétrica", 
       description: "Intervenção especializada em sistemas elétricos de máquinas industriais.",
-      features: ["Sistemas elétricos", "Painéis de controle", "Automação", "Segurança elétrica"]
+      features: ["Sistemas elétricos", "Painéis de controle", "Automação", "Segurança elétrica"],
+      fullDescription: "Especialistas em sistemas elétricos industriais, oferecemos manutenção preventiva e corretiva em painéis de controle, sistemas de automação e toda a infraestrutura elétrica das suas máquinas.",
+      benefits: [
+        "Segurança elétrica garantida",
+        "Conformidade com normas técnicas",
+        "Redução de falhas elétricas",
+        "Otimização do consumo energético"
+      ],
+      process: [
+        "Análise do sistema elétrico existente",
+        "Identificação de problemas e riscos",
+        "Intervenção com equipamentos certificados",
+        "Testes de segurança e performance"
+      ]
     },
     {
       icon: Droplets,
       title: "Manutenção Hidráulica",
       description: "Especialistas em sistemas hidráulicos complexos e de alta pressão.",
-      features: ["Sistemas hidráulicos", "Bombas e válvulas", "Cilindros", "Circuitos complexos"]
+      features: ["Sistemas hidráulicos", "Bombas e válvulas", "Cilindros", "Circuitos complexos"],
+      fullDescription: "Domínio completo em sistemas hidráulicos industriais, desde bombas e válvulas até circuitos complexos de alta pressão. Nossa equipe garante o funcionamento perfeito dos seus sistemas hidráulicos.",
+      benefits: [
+        "Máxima pressão e performance",
+        "Redução de vazamentos",
+        "Economia de fluidos hidráulicos",
+        "Maior precisão nos movimentos"
+      ],
+      process: [
+        "Teste de pressão e vazão",
+        "Diagnóstico de vazamentos e desgastes",
+        "Substituição de componentes defeituosos",
+        "Calibração e ajuste fino do sistema"
+      ]
     },
     {
       icon: Shield,
       title: "Revisões Preventivas",
       description: "Programas personalizados que prolongam a vida útil das suas máquinas.",
-      features: ["Planos preventivos", "Cronogramas flexíveis", "Relatórios detalhados", "Otimização"]
+      features: ["Planos preventivos", "Cronogramas flexíveis", "Relatórios detalhados", "Otimização"],
+      fullDescription: "Desenvolvemos programas de manutenção preventiva personalizados para cada tipo de equipamento, garantindo máxima disponibilidade e menor custo total de operação.",
+      benefits: [
+        "Redução drástica de paradas não programadas",
+        "Maior vida útil dos equipamentos",
+        "Planejamento de custos de manutenção",
+        "Relatórios de performance detalhados"
+      ],
+      process: [
+        "Análise do histórico dos equipamentos",
+        "Desenvolvimento do plano preventivo",
+        "Execução das manutenções programadas",
+        "Monitoramento e ajustes contínuos"
+      ]
     },
     {
       icon: AlertTriangle,
       title: "Intervenções Corretivas",
       description: "Resposta rápida para minimizar tempo de paragem e perdas operacionais.",
-      features: ["Resposta 24h", "Diagnóstico rápido", "Reparação urgente", "Suporte contínuo"]
+      features: ["Resposta 24h", "Diagnóstico rápido", "Reparação urgente", "Suporte contínuo"],
+      fullDescription: "Serviço de emergência disponível 24/7 para intervenções corretivas urgentes. Nossa equipe está sempre pronta para minimizar o tempo de paragem das suas operações.",
+      benefits: [
+        "Resposta rápida em emergências",
+        "Minimização de perdas operacionais",
+        "Diagnóstico preciso e eficiente",
+        "Suporte técnico contínuo"
+      ],
+      process: [
+        "Chamada de emergência e mobilização",
+        "Diagnóstico rápido no local",
+        "Execução imediata dos reparos",
+        "Acompanhamento pós-intervenção"
+      ]
     }
   ];
+
+  const openModal = (service: any) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
 
   return (
     <section id="servicos" className="py-20 bg-background">
@@ -80,11 +155,21 @@ const Services = () => {
                   ))}
                 </ul>
 
-                {/* CTA */}
-                <Button variant="outline" className="w-full group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
-                  Solicitar Orçamento
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                {/* CTAs */}
+                <div className="space-y-3">
+                  <Button 
+                    variant="outline" 
+                    className="w-full group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300"
+                    onClick={() => openModal(service)}
+                  >
+                    <Info className="mr-2 h-4 w-4" />
+                    Saiba Mais
+                  </Button>
+                  <Button variant="vector" className="w-full">
+                    Solicitar Orçamento
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
               </div>
             </Card>
           ))}
@@ -105,6 +190,13 @@ const Services = () => {
           </Card>
         </div>
       </div>
+
+      {/* Service Modal */}
+      <ServiceModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        service={selectedService}
+      />
     </section>
   );
 };

@@ -6,6 +6,8 @@ import Differentials from "@/components/Differentials";
 import Clients from "@/components/Clients";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   return (
@@ -18,6 +20,8 @@ const Index = () => {
       <Clients />
       <Contact />
       <Footer />
+      <WhatsAppFloat />
+      <Toaster />
     </div>
   );
 };

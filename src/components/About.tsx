@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Users, Target, Award } from "lucide-react";
 import teamImage from "@/assets/team-work.jpg";
+import Timeline from "./Timeline";
 
 const About = () => {
   return (
@@ -57,15 +58,21 @@ const About = () => {
             </div>
           </div>
 
-          {/* Image */}
+          {/* Team Image */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <img
                 src={teamImage}
-                alt="Equipa técnica Vector em ação"
+                alt="Fundadores da Vector - Dori Edson Junior e Everton Souza"
                 className="w-full h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                  <h4 className="font-semibold text-primary">Fundadores</h4>
+                  <p className="text-sm text-muted-foreground">Dori Edson Junior & Everton Souza</p>
+                </div>
+              </div>
             </div>
             
             {/* Floating Card */}
@@ -76,6 +83,18 @@ const About = () => {
               </div>
             </Card>
           </div>
+        </div>
+
+        {/* Timeline Section */}
+        <div className="mt-20 bg-background rounded-3xl p-8 lg:p-12 shadow-lg">
+          <div className="text-center space-y-4 mb-12">
+            <h3 className="text-3xl font-bold text-primary">Nossa Jornada</h3>
+            <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto" />
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Conheça os marcos importantes da Vector ao longo dos anos
+            </p>
+          </div>
+          <Timeline />
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import vectorLogo from "@/assets/vector-logo.png";
 
 const Header = () => {
@@ -47,7 +47,8 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="vector" size="lg">
+            <Button variant="vector" size="lg" className="group animate-bounce-subtle">
+              <ArrowRight className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               Solicitar Proposta
             </Button>
           </div>
@@ -76,7 +77,8 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4">
-                <Button variant="vector" size="lg" className="w-full">
+                <Button variant="vector" size="lg" className="w-full group">
+                  <ArrowRight className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Solicitar Proposta
                 </Button>
               </div>
