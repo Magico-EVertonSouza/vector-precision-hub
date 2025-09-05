@@ -9,32 +9,46 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 210 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Vector Brand Colors */
+    --primary: 215 75% 25%; /* Deep Blue - Vector's main color */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 215 65% 35%;
+    --primary-dark: 215 85% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 10% 60%; /* Professional Gray */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 25 95% 55%; /* Energy Orange */
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 25 85% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 10% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 15% 90%;
+    --input: 210 15% 95%;
+    --ring: 215 75% 25%;
+
+    /* Vector Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    
+    /* Vector Shadows */
+    --shadow-primary: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-accent: 0 10px 30px -10px hsl(var(--accent) / 0.4);
+    --shadow-elegant: 0 20px 60px -10px hsl(210 15% 15% / 0.15);
 
     --radius: 0.5rem;
 
