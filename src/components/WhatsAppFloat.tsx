@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/351910000000?text=Olá! Gostaria de solicitar informações sobre os serviços da Vector.', '_blank');
+    window.open('https://wa.me/351936660681?text=Olá! Gostaria de solicitar informações sobre os serviços da Vector.', '_blank');
   };
 
   return (

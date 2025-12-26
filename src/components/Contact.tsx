@@ -70,7 +70,7 @@ const Contact = () => {
                   <Button 
                     variant="secondary" 
                     size="sm"
-                    onClick={() => window.open('https://wa.me/351910000000', '_blank')}
+                    onClick={() => window.open('https://wa.me/351936660681', '_blank')}
                   >
                     Abrir WhatsApp
                   </Button>
@@ -86,7 +86,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-primary mb-2">Telefone</h3>
-                  <p className="text-muted-foreground">+351 910 000 000</p>
+                  <p className="text-muted-foreground">+351 936 660 681</p>
                 </div>
               </div>
             </Card>
@@ -98,7 +98,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-primary mb-2">Email</h3>
-                  <p className="text-muted-foreground">contacto@vector.pt</p>
+                  <p className="text-muted-foreground">contatovector.pt@gmail.com</p>
                 </div>
               </div>
             </Card>
@@ -215,7 +215,7 @@ const Contact = () => {
             <Button 
               variant="secondary" 
               size="lg"
-              onClick={() => window.open('https://wa.me/351910000000', '_blank')}
+              onClick={() => window.open('https://wa.me/351936660681', '_blank')}
             >
               Contacto de Emergência
             </Button>

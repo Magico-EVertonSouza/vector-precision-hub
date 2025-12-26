@@ -42,7 +42,7 @@ const Hero = () => {
                 variant="whatsapp" 
                 size="xl" 
                 className="group"
-                onClick={() => window.open('https://wa.me/351910000000', '_blank')}
+                onClick={() => window.open('https://wa.me/351936660681', '_blank')}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Fale no WhatsApp
