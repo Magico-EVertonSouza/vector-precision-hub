@@ -33,9 +33,12 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-8">
-              <Button variant="vector" size="xl" className="group">
-                Solicitar Proposta
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              {/* Botão atualizado para WhatsApp */}
+              <Button variant="vector" size="xl" className="group" asChild>
+                <a href="https://wa.me/351936660681" target="_blank" rel="noopener noreferrer">
+                  Solicitar Proposta
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
               
               <Button 
