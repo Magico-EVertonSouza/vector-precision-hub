@@ -9,25 +9,31 @@ const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
-    {
-      icon: Wrench,
-      title: "Manutenção Mecânica",
-      description: "Diagnóstico completo, reparos precisos e revisão total de sistemas mecânicos.",
-      features: ["Diagnóstico avançado", "Reparos especializados", "Revisão completa", "Peças originais"],
-      fullDescription: "Nossa equipe especializada em manutenção mecânica oferece soluções completas para todos os tipos de máquinas industriais. Utilizamos tecnologia avançada de diagnóstico para identificar problemas antes que se tornem críticos.",
-      benefits: [
-        "Redução de custos operacionais",
-        "Maior vida útil dos equipamentos", 
-        "Minimização de paradas não programadas",
-        "Melhoria da eficiência produtiva"
-      ],
-      process: [
-        "Inspeção inicial e diagnóstico completo",
-        "Análise técnica e orçamento detalhado",
-        "Execução dos reparos com peças originais",
-        "Testes de funcionamento e certificação"
-      ]
-    },
+  {
+  icon: Wrench,
+  title: "Manutenção Mecânica",
+  description: "Oferecemos manutenção mecânica especializada para equipamentos de elevação e máquinas industriais, assegurando desempenho, segurança e continuidade operacional.",
+  features: [
+    "Diagnóstico técnico completo e preciso",
+    "Reparações mecânicas especializadas",
+    "Revisão total dos sistemas mecânicos",
+    "Utilização de peças originais ou certificadas"
+  ],
+  fullDescription: "Nossa equipe utiliza tecnologia avançada de diagnóstico para identificar falhas de forma precisa e atuar antes que se tornem críticas, garantindo máxima performance e segurança.",
+  benefits: [
+    "Redução dos custos operacionais",
+    "Aumento da vida útil dos equipamentos",
+    "Minimização de paradas não programadas",
+    "Maior eficiência e fiabilidade operacional"
+  ],
+  process: [
+    "Inspeção inicial e diagnóstico completo",
+    "Análise técnica com orçamento detalhado",
+    "Execução dos reparos com peças originais",
+    "Testes de funcionamento, validação e certificação"
+  ]
+},
+
     {
       icon: Zap,
       title: "Manutenção Elétrica", 
