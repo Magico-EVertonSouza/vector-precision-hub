@@ -8,6 +8,10 @@ import { MessageSquare, Phone, Mail, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
+const SERVICE_ID = "service_6hjun0a"; // seu Service ID
+const TEMPLATE_ID = "template_abc123"; // seu Template ID
+const PUBLIC_KEY = "user_xxxxxxxx"; // sua Public Key
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -17,6 +21,7 @@ const Contact = () => {
     bestTime: "",
     message: ""
   });
+  const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -27,6 +32,7 @@ const Contact = () => {
 
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSending(true);
 
     const templateParams = {
       name: formData.name,
@@ -34,37 +40,26 @@ const Contact = () => {
       phone: formData.phone,
       bestTime: formData.bestTime,
       message: formData.message,
-      time: new Date().toLocaleString()
+      time: new Date().toLocaleString(),
     };
 
-    emailjs.send(
-      "YOUR_SERVICE_ID",    // Substitua pelo seu service_id
-      "YOUR_TEMPLATE_ID",   // Substitua pelo seu template_id
-      templateParams,
-      "YOUR_PUBLIC_KEY"     // Substitua pela sua public_key
-    )
-    .then(() => {
-      toast({
-        title: "Pedido enviado com sucesso!",
-        description: "Entraremos em contacto brevemente.",
-      });
-
-      setFormData({
-        name: "",
-        company: "",
-        phone: "",
-        bestTime: "",
-        message: ""
-      });
-    })
-    .catch((err) => {
-      console.error("Erro ao enviar email:", err);
-      toast({
-        title: "Erro ao enviar pedido",
-        description: "Tente novamente mais tarde.",
-        variant: "destructive"
-      });
-    });
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        toast({
+          title: "Pedido enviado com sucesso!",
+          description: "Entraremos em contacto brevemente.",
+        });
+        setFormData({ name: "", company: "", phone: "", bestTime: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("Erro ao enviar email:", error);
+        toast({
+          title: "Erro ao enviar pedido",
+          description: "Tente novamente mais tarde.",
+          variant: "destructive"
+        });
+      })
+      .finally(() => setIsSending(false));
   };
 
   return (
@@ -76,13 +71,14 @@ const Contact = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto" />
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Pronto para garantir o máximo desempenho das suas máquinas? Contacte-nos hoje mesmo.
+            Preencha o formulário para agendar a sua ligação.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Methods */}
+          {/* Contact Info */}
           <div className="space-y-6">
+            {/* WhatsApp */}
             <Card className="p-6 bg-gradient-to-r from-green-600 to-green-500 text-white border-0">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
@@ -102,6 +98,7 @@ const Contact = () => {
               </div>
             </Card>
 
+            {/* Telefone */}
             <Card className="p-6 border-0 shadow-lg">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
@@ -114,6 +111,7 @@ const Contact = () => {
               </div>
             </Card>
 
+            {/* Email */}
             <Card className="p-6 border-0 shadow-lg">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
@@ -126,6 +124,7 @@ const Contact = () => {
               </div>
             </Card>
 
+            {/* Horário */}
             <Card className="p-6 border-0 shadow-lg">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
@@ -144,14 +143,12 @@ const Contact = () => {
           <div className="lg:col-span-2">
             <Card className="p-8 border-0 shadow-lg">
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-2">
-                    Agendar Ligação
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Preencha o formulário e entraremos em contacto no melhor horário para si.
-                  </p>
-                </div>
+                <h3 className="text-2xl font-bold text-primary mb-2">
+                  Agendar Ligação
+                </h3>
+                <p className="text-muted-foreground">
+                  Preencha o formulário e entraremos em contacto no melhor horário.
+                </p>
 
                 <form onSubmit={handleSubmitForm} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -212,37 +209,18 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      placeholder="Descreva brevemente suas necessidades de manutenção..."
+                      placeholder="Descreva brevemente suas necessidades..."
                     />
                   </div>
 
-                  <Button type="submit" variant="vector" size="lg" className="w-full">
+                  <Button type="submit" variant="vector" size="lg" className="w-full" disabled={isSending}>
                     <Send className="mr-2 h-5 w-5" />
-                    Agendar Ligação
+                    {isSending ? "Enviando..." : "Agendar Ligação"}
                   </Button>
                 </form>
               </div>
             </Card>
           </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <Card className="p-8 bg-gradient-to-r from-primary to-primary-dark text-white">
-            <h3 className="text-2xl font-bold mb-4">
-              Precisa de uma intervenção urgente?
-            </h3>
-            <p className="text-white/90 mb-6">
-              Nossa equipa está disponível 24h para emergências
-            </p>
-            <Button 
-              variant="secondary" 
-              size="lg"
-              onClick={() => window.open('https://wa.me/351936660681', '_blank')}
-            >
-              Contacto de Emergência
-            </Button>
-          </Card>
         </div>
       </div>
     </section>
