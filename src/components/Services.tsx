@@ -9,22 +9,22 @@ const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
-  {
+ {
   icon: Wrench,
-  title: "Manutenção Mecânica",
-  description: "Oferecemos manutenção mecânica especializada para equipamentos de elevação e máquinas industriais, assegurando desempenho, segurança e continuidade operacional.",
+  title: "Manutenção Mecânica de Equipamentos de Elevação",
+  description: "Manutenção mecânica especializada para plataformas elevatórias e empilhadores, garantindo desempenho, segurança e continuidade operacional.",
   features: [
     "Diagnóstico técnico completo e preciso",
     "Reparações mecânicas especializadas",
     "Revisão total dos sistemas mecânicos",
     "Utilização de peças originais ou certificadas"
   ],
-  fullDescription: "Nossa equipe utiliza tecnologia avançada de diagnóstico para identificar falhas de forma precisa e atuar antes que se tornem críticas, garantindo máxima performance e segurança.",
+  fullDescription: "Nossa equipe utiliza tecnologia avançada de diagnóstico para identificar falhas de forma precisa e atuar antes que se tornem críticas, garantindo máxima performance e segurança dos equipamentos de elevação.",
   benefits: [
     "Redução dos custos operacionais",
     "Aumento da vida útil dos equipamentos",
     "Minimização de paradas não programadas",
-    "Maior eficiência e fiabilidade operacional"
+    "Maior eficiência e segurança operacional"
   ],
   process: [
     "Inspeção inicial e diagnóstico completo",
@@ -33,6 +33,7 @@ const Services = () => {
     "Testes de funcionamento, validação e certificação"
   ]
 },
+
 
     {
       icon: Zap,
