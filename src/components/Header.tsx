@@ -15,6 +15,9 @@ const Header = () => {
     { label: "Contato", href: "#contato" },
   ];
 
+  // Substitua pelo seu número do WhatsApp (com código do país)
+  const whatsappLink = "https://wa.me/351936660681";
+
   return (
     <header className="bg-background border-b shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
@@ -45,11 +48,13 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button Desktop */}
           <div className="hidden lg:block">
-            <Button variant="vector" size="lg" className="group animate-bounce-subtle">
-              <ArrowRight className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              Solicitar Proposta
+            <Button variant="vector" size="lg" className="group animate-bounce-subtle" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <ArrowRight className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                Solicitar Proposta
+              </a>
             </Button>
           </div>
 
@@ -77,9 +82,11 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4">
-                <Button variant="vector" size="lg" className="w-full group">
-                  <ArrowRight className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  Solicitar Proposta
+                <Button variant="vector" size="lg" className="w-full group" asChild>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <ArrowRight className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    Solicitar Proposta
+                  </a>
                 </Button>
               </div>
             </nav>
