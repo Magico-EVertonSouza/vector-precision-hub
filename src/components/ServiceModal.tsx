@@ -17,6 +17,8 @@ interface ServiceModalProps {
 const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) => {
   if (!service) return null;
 
+  const whatsappLink = `https://wa.me/351936660681?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20o%20serviço%20${encodeURIComponent(service.title)}`;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
@@ -63,9 +65,11 @@ const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) => {
           </div>
 
           <div className="pt-4 border-t">
-            <Button variant="vector" size="lg" className="w-full group">
-              Solicitar Orçamento para {service.title}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Button variant="vector" size="lg" className="w-full group" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                Solicitar Orçamento para {service.title}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
           </div>
         </div>

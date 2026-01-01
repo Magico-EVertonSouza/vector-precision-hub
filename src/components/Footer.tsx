@@ -3,6 +3,8 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import vectorLogo from "@/assets/vector-logo.png";
 
 const Footer = () => {
+  const whatsappLink = "https://wa.me/351936660681";
+
   return (
     <footer className="bg-primary-dark text-white">
       {/* Main Footer */}
@@ -57,7 +59,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-accent" />
-                <span className="text-white/80">+351 910 000 000</span>
+                <span className="text-white/80">+351 936 660 681</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent" />
@@ -82,8 +84,12 @@ const Footer = () => {
             <p className="text-white/90 text-lg max-w-2xl mx-auto">
               Mantenha a sua empresa em movimento com quem entende de grandes máquinas.
             </p>
-            <Button variant="vector" size="xl">
-              Solicitar Proposta Agora
+
+            {/* Botão atualizado */}
+            <Button variant="vector" size="xl" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                Solicitar Proposta Agora
+              </a>
             </Button>
           </div>
         </div>
