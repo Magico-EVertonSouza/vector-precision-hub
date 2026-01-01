@@ -18,18 +18,19 @@ const About = () => {
             </div>
 
             <div className="space-y-6 text-lg text-muted-foreground">
-              <p>
-  A Vector nasceu da parceria de dois amigos com paixão por <span className="font-semibold text-primary">manutenção de equipamentos de elevação</span>. 
-  Juntos, combinam conhecimento técnico e experiência prática para oferecer serviços de alta qualidade, precisos e confiáveis.
+   <p>
+  A Vector nasceu da parceria de dois amigos com visão em <span className="font-semibold text-primary">manutenção de equipamentos de elevação</span>, unindo <span className="font-semibold text-primary">planejamento estratégico</span> e <span className="font-semibold text-primary">execução prática</span>. 
+  Desde então, a empresa se dedica a oferecer serviços que garantem <span className="font-semibold text-primary">segurança, desempenho e confiabilidade</span> para plataformas elevatórias, empilhadores e outros equipamentos críticos.
 </p>
 
 <p>
-  Nossa missão é garantir que plataformas elevatórias, empilhadores e outros equipamentos críticos operem sempre com <span className="font-semibold text-primary">máxima segurança e desempenho</span>.
+  Combinando <span className="font-semibold text-primary">gestão eficiente</span> e <span className="font-semibold text-primary">intervenções precisas</span>, a Vector entrega soluções rápidas e estratégicas, minimizando paragens e assegurando que sua operação funcione sempre sem interrupções.
 </p>
 
 <p className="font-semibold text-primary text-xl">
-  Compromisso, precisão e confiança são os pilares que nos movem.
+  Nosso compromisso é com <span className="font-semibold text-primary">qualidade, eficiência e confiança</span> em cada serviço prestado.
 </p>
+
 
             </div>
 
