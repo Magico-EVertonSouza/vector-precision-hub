@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageSquare, Phone, Mail, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -17,28 +18,52 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmitForm = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // In a real application, this would send to contacto@vector.pt
-    toast({
-      title: "Pedido enviado com sucesso!",
-      description: "Entraremos em contacto brevemente.",
-    });
-    
-    setFormData({
-      name: "",
-      company: "",
-      phone: "",
-      bestTime: "",
-      message: ""
-    });
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const templateParams = {
+      name: formData.name,
+      company: formData.company,
+      phone: formData.phone,
+      bestTime: formData.bestTime,
+      message: formData.message,
+      time: new Date().toLocaleString()
+    };
+
+    emailjs.send(
+      "YOUR_SERVICE_ID",    // Substitua pelo seu service_id
+      "YOUR_TEMPLATE_ID",   // Substitua pelo seu template_id
+      templateParams,
+      "YOUR_PUBLIC_KEY"     // Substitua pela sua public_key
+    )
+    .then(() => {
+      toast({
+        title: "Pedido enviado com sucesso!",
+        description: "Entraremos em contacto brevemente.",
+      });
+
+      setFormData({
+        name: "",
+        company: "",
+        phone: "",
+        bestTime: "",
+        message: ""
+      });
+    })
+    .catch((err) => {
+      console.error("Erro ao enviar email:", err);
+      toast({
+        title: "Erro ao enviar pedido",
+        description: "Tente novamente mais tarde.",
+        variant: "destructive"
+      });
     });
   };
 
@@ -58,7 +83,6 @@ const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Methods */}
           <div className="space-y-6">
-            {/* WhatsApp - Destaque */}
             <Card className="p-6 bg-gradient-to-r from-green-600 to-green-500 text-white border-0">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
@@ -78,7 +102,6 @@ const Contact = () => {
               </div>
             </Card>
 
-            {/* Contact Info Cards */}
             <Card className="p-6 border-0 shadow-lg">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
