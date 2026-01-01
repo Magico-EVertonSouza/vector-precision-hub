@@ -19,21 +19,18 @@ const About = () => {
 
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>
-                A Vector nasceu da união de dois profissionais experientes – 
-                <span className="font-semibold text-primary"> Dori Edson Junior</span> e 
-                <span className="font-semibold text-primary"> Everton Souza</span> – 
-                com a missão de oferecer serviços técnicos de alta qualidade para grandes empresas.
-              </p>
-              
-              <p>
-                Com experiência em mecânica, elétrica e hidráulica, a Vector é hoje uma 
-                parceira estratégica para construtoras, indústrias e empresas de logística, 
-                garantindo que cada máquina opere sempre no seu máximo desempenho.
-              </p>
-              
-              <p className="font-semibold text-primary text-xl">
-                Compromisso, precisão e confiança são os pilares que nos movem.
-              </p>
+  A Vector nasceu da parceria de dois amigos com paixão por <span className="font-semibold text-primary">manutenção de equipamentos de elevação</span>. 
+  Juntos, combinam conhecimento técnico e experiência prática para oferecer serviços de alta qualidade, precisos e confiáveis.
+</p>
+
+<p>
+  Nossa missão é garantir que plataformas elevatórias, empilhadores e outros equipamentos críticos operem sempre com <span className="font-semibold text-primary">máxima segurança e desempenho</span>.
+</p>
+
+<p className="font-semibold text-primary text-xl">
+  Compromisso, precisão e confiança são os pilares que nos movem.
+</p>
+
             </div>
 
             {/* Values */}
