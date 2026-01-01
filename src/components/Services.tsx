@@ -35,82 +35,105 @@ const Services = () => {
 },
 
 
+{
+  icon: Zap,
+  title: "Manutenção Elétrica de Equipamentos de Elevação",
+  description: "Manutenção elétrica especializada para plataformas elevatórias e empilhadores, garantindo segurança, desempenho e operação contínua.",
+  features: [
+    "Diagnóstico elétrico completo e preciso",
+    "Intervenções preventivas e corretivas especializadas",
+    "Revisão de painéis de controle e sistemas elétricos",
+    "Utilização de componentes certificados e originais"
+  ],
+  fullDescription: "Nossa equipe realiza manutenção elétrica com equipamentos certificados, identificando e corrigindo falhas antes que comprometam a operação. Garantimos máxima segurança e desempenho dos sistemas elétricos dos seus equipamentos de elevação.",
+  benefits: [
+    "Segurança elétrica garantida",
+    "Conformidade com normas técnicas",
+    "Redução de falhas elétricas",
+    "Otimização do consumo energético"
+  ],
+  process: [
+    "Análise detalhada do sistema elétrico do equipamento",
+    "Identificação de problemas e riscos potenciais",
+    "Intervenção com equipamentos e componentes certificados",
+    "Testes de segurança e performance elétrica"
+  ]
+},
     {
-      icon: Zap,
-      title: "Manutenção Elétrica", 
-      description: "Intervenção especializada em sistemas elétricos de máquinas industriais.",
-      features: ["Sistemas elétricos", "Painéis de controle", "Automação", "Segurança elétrica"],
-      fullDescription: "Especialistas em sistemas elétricos industriais, oferecemos manutenção preventiva e corretiva em painéis de controle, sistemas de automação e toda a infraestrutura elétrica das suas máquinas.",
-      benefits: [
-        "Segurança elétrica garantida",
-        "Conformidade com normas técnicas",
-        "Redução de falhas elétricas",
-        "Otimização do consumo energético"
-      ],
-      process: [
-        "Análise do sistema elétrico existente",
-        "Identificação de problemas e riscos",
-        "Intervenção com equipamentos certificados",
-        "Testes de segurança e performance"
-      ]
-    },
+  icon: Droplets,
+  title: "Manutenção Hidráulica de Equipamentos de Elevação",
+  description: "Manutenção hidráulica especializada em plataformas elevatórias e empilhadores, garantindo desempenho, segurança e movimentos precisos.",
+  features: [
+    "Diagnóstico completo de sistemas hidráulicos",
+    "Reparação de bombas, válvulas e cilindros",
+    "Manutenção de circuitos hidráulicos de alta pressão",
+    "Utilização de componentes certificados e originais"
+  ],
+  fullDescription: "Nossa equipe realiza manutenção hidráulica detalhada em equipamentos de elevação, garantindo funcionamento perfeito dos sistemas, precisão nos movimentos e segurança operacional.",
+  benefits: [
+    "Máxima pressão e performance",
+    "Redução de vazamentos",
+    "Economia de fluido hidráulico",
+    "Maior precisão e controle nos movimentos"
+  ],
+  process: [
+    "Teste de pressão e vazão dos sistemas",
+    "Diagnóstico de vazamentos e desgastes",
+    "Substituição de componentes defeituosos com peças certificadas",
+    "Calibração e ajuste fino do sistema hidráulico"
+  ]
+},
+
+   {
+  icon: Shield,
+  title: "Revisões Preventivas de Equipamentos de Elevação",
+  description: "Programas de manutenção preventiva especializados para plataformas elevatórias e empilhadores, garantindo operação segura e prolongando a vida útil dos equipamentos.",
+  features: [
+    "Planos preventivos personalizados",
+    "Cronogramas de manutenção flexíveis",
+    "Relatórios detalhados de performance",
+    "Otimização da operação e segurança"
+  ],
+  fullDescription: "Desenvolvemos programas de manutenção preventiva específicos para cada equipamento de elevação, assegurando máxima disponibilidade, segurança operacional e menor custo total de manutenção.",
+  benefits: [
+    "Redução de paradas não programadas",
+    "Maior vida útil dos equipamentos",
+    "Planejamento eficiente dos custos de manutenção",
+    "Relatórios detalhados de desempenho e operação"
+  ],
+  process: [
+    "Análise do histórico e condição dos equipamentos",
+    "Desenvolvimento do plano preventivo personalizado",
+    "Execução das manutenções programadas",
+    "Monitoramento contínuo e ajustes conforme necessidade"
+  ]
+},
+
     {
-      icon: Droplets,
-      title: "Manutenção Hidráulica",
-      description: "Especialistas em sistemas hidráulicos complexos e de alta pressão.",
-      features: ["Sistemas hidráulicos", "Bombas e válvulas", "Cilindros", "Circuitos complexos"],
-      fullDescription: "Domínio completo em sistemas hidráulicos industriais, desde bombas e válvulas até circuitos complexos de alta pressão. Nossa equipe garante o funcionamento perfeito dos seus sistemas hidráulicos.",
-      benefits: [
-        "Máxima pressão e performance",
-        "Redução de vazamentos",
-        "Economia de fluidos hidráulicos",
-        "Maior precisão nos movimentos"
-      ],
-      process: [
-        "Teste de pressão e vazão",
-        "Diagnóstico de vazamentos e desgastes",
-        "Substituição de componentes defeituosos",
-        "Calibração e ajuste fino do sistema"
-      ]
-    },
-    {
-      icon: Shield,
-      title: "Revisões Preventivas",
-      description: "Programas personalizados que prolongam a vida útil das suas máquinas.",
-      features: ["Planos preventivos", "Cronogramas flexíveis", "Relatórios detalhados", "Otimização"],
-      fullDescription: "Desenvolvemos programas de manutenção preventiva personalizados para cada tipo de equipamento, garantindo máxima disponibilidade e menor custo total de operação.",
-      benefits: [
-        "Redução drástica de paradas não programadas",
-        "Maior vida útil dos equipamentos",
-        "Planejamento de custos de manutenção",
-        "Relatórios de performance detalhados"
-      ],
-      process: [
-        "Análise do histórico dos equipamentos",
-        "Desenvolvimento do plano preventivo",
-        "Execução das manutenções programadas",
-        "Monitoramento e ajustes contínuos"
-      ]
-    },
-    {
-      icon: AlertTriangle,
-      title: "Intervenções Corretivas",
-      description: "Resposta rápida para minimizar tempo de paragem e perdas operacionais.",
-      features: ["Resposta 24h", "Diagnóstico rápido", "Reparação urgente", "Suporte contínuo"],
-      fullDescription: "Serviço de emergência disponível 24/7 para intervenções corretivas urgentes. Nossa equipe está sempre pronta para minimizar o tempo de paragem das suas operações.",
-      benefits: [
-        "Resposta rápida em emergências",
-        "Minimização de perdas operacionais",
-        "Diagnóstico preciso e eficiente",
-        "Suporte técnico contínuo"
-      ],
-      process: [
-        "Chamada de emergência e mobilização",
-        "Diagnóstico rápido no local",
-        "Execução imediata dos reparos",
-        "Acompanhamento pós-intervenção"
-      ]
-    }
+  icon: AlertTriangle,
+  title: "Intervenções Corretivas em Equipamentos de Elevação",
+  description: "Resposta rápida para minimizar o tempo de paragem e garantir operação segura de plataformas elevatórias e empilhadores.",
+  features: [
+    "Resposta emergencial 24/7",
+    "Diagnóstico rápido e preciso",
+    "Reparação urgente de sistemas críticos",
+    "Suporte técnico contínuo"
+  ],
+  fullDescription: "Serviço de emergência disponível 24/7 para intervenções corretivas em equipamentos de elevação. Nossa equipe altamente qualificada atua rapidamente para minimizar paradas e garantir a segurança operacional.",
+  benefits: [
+    "Resposta imediata em situações críticas",
+    "Minimização de perdas operacionais",
+    "Diagnóstico preciso e eficiente",
+    "Suporte técnico contínuo durante e após a intervenção"
+  ],
+  process: [
+    "Chamada de emergência e mobilização da equipe",
+    "Diagnóstico rápido no local do equipamento",
+    "Execução imediata dos reparos com componentes certificados",
+    "Acompanhamento pós-intervenção e validação da operação"
+  ]
+},
+
   ];
 
   const openModal = (service: any) => {
