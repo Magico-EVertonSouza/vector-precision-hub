@@ -68,7 +68,7 @@ const About = () => {
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
                   <h4 className="font-semibold text-primary">Fundadores</h4>
-                  <p className="text-sm text-muted-foreground">Everton Souza & Edson Jr </p>
+                  <p className="text-sm text-muted-foreground">Everton Souza & Edson Moraes </p>
                 </div>
               </div>
             </div>
