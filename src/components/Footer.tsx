@@ -79,7 +79,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="text-center space-y-6">
             <h3 className="text-2xl font-bold">
-              Vector – Precisão em cada intervenção
+              Vector – Precisão em cada intervenção?
             </h3>
             <p className="text-white/90 text-lg max-w-2xl mx-auto">
               Mantenha a sua empresa em movimento com quem entende de grandes máquinas.
