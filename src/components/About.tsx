@@ -76,7 +76,7 @@ const About = () => {
             {/* Floating Card */}
             <Card className="absolute -bottom-8 -left-8 p-6 bg-white shadow-2xl max-w-xs">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">Vector</div>
+                <div className="text-3xl font-bold text-primary mb-2">Vector001</div>
                 <p className="text-accent font-semibold">Precisão em cada intervenção</p>
               </div>
             </Card>
