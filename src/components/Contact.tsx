@@ -8,10 +8,6 @@ import { MessageSquare, Phone, Mail, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
-const SERVICE_ID = "service_6hjun0a"; // seu Service ID
-const TEMPLATE_ID = "template_abc123"; // seu Template ID
-const PUBLIC_KEY = "user_xxxxxxxx"; // sua Public Key
-
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -19,20 +15,19 @@ const Contact = () => {
     company: "",
     phone: "",
     bestTime: "",
-    message: ""
+    message: "",
   });
-  const [isSending, setIsSending] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmitForm = (e: React.FormEvent) => {
+  const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSending(true);
+    setIsSubmitting(true);
 
     const templateParams = {
       name: formData.name,
@@ -43,40 +38,54 @@ const Contact = () => {
       time: new Date().toLocaleString(),
     };
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      .then(() => {
-        toast({
-          title: "Pedido enviado com sucesso!",
-          description: "Entraremos em contacto brevemente.",
-        });
-        setFormData({ name: "", company: "", phone: "", bestTime: "", message: "" });
-      })
-      .catch((error) => {
-        console.error("Erro ao enviar email:", error);
-        toast({
-          title: "Erro ao enviar pedido",
-          description: "Tente novamente mais tarde.",
-          variant: "destructive"
-        });
-      })
-      .finally(() => setIsSending(false));
+    try {
+      await emailjs.send(
+        "service_6hjun0a",      // Seu Service ID
+        "template_59xwdtz",     // Seu Template ID
+        templateParams,
+        "cMp-tqH6QRtEsr_si6"   // Sua Public Key
+      );
+
+      toast({
+        title: "Pedido enviado com sucesso!",
+        description: "Entraremos em contacto brevemente.",
+      });
+
+      setFormData({
+        name: "",
+        company: "",
+        phone: "",
+        bestTime: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error);
+      toast({
+        title: "Erro ao enviar pedido",
+        description: "Ocorreu um problema. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contato" className="py-20 bg-background">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary">
             Entre em Contacto
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto" />
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Preencha o formulário para agendar a sua ligação.
+            Pronto para garantir o máximo desempenho das suas máquinas? Contacte-nos hoje mesmo.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
+          {/* Contact Methods */}
           <div className="space-y-6">
             {/* WhatsApp */}
             <Card className="p-6 bg-gradient-to-r from-green-600 to-green-500 text-white border-0">
@@ -87,10 +96,12 @@ const Contact = () => {
                 <div className="flex-1">
                   <h3 className="font-bold text-lg mb-2">WhatsApp Direto</h3>
                   <p className="text-white/90 mb-4">Fale connosco agora mesmo</p>
-                  <Button 
-                    variant="secondary" 
+                  <Button
+                    variant="secondary"
                     size="sm"
-                    onClick={() => window.open('https://wa.me/351936660681', '_blank')}
+                    onClick={() =>
+                      window.open("https://wa.me/351936660681", "_blank")
+                    }
                   >
                     Abrir WhatsApp
                   </Button>
@@ -139,16 +150,18 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Form */}
+          {/* Formulário */}
           <div className="lg:col-span-2">
             <Card className="p-8 border-0 shadow-lg">
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-primary mb-2">
-                  Agendar Ligação
-                </h3>
-                <p className="text-muted-foreground">
-                  Preencha o formulário e entraremos em contacto no melhor horário.
-                </p>
+                <div>
+                  <h3 className="text-2xl font-bold text-primary mb-2">
+                    Agendar Ligação
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Preencha o formulário e entraremos em contacto no melhor horário para si.
+                  </p>
+                </div>
 
                 <form onSubmit={handleSubmitForm} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -209,13 +222,19 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      placeholder="Descreva brevemente suas necessidades..."
+                      placeholder="Descreva brevemente suas necessidades de manutenção..."
                     />
                   </div>
 
-                  <Button type="submit" variant="vector" size="lg" className="w-full" disabled={isSending}>
+                  <Button
+                    type="submit"
+                    variant="vector"
+                    size="lg"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     <Send className="mr-2 h-5 w-5" />
-                    {isSending ? "Enviando..." : "Agendar Ligação"}
+                    {isSubmitting ? "Enviando..." : "Agendar Ligação"}
                   </Button>
                 </form>
               </div>
