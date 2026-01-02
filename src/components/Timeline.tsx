@@ -5,7 +5,7 @@ const Timeline = () => {
     {
       year: "2010",
       title: "Fundação",
-      description: "União de dois profissionais experientes - Dori Edson Junior e Everton Souza"
+      description: "União de dois profissionais experientes - Everton Souza e Edson Moraes"
     },
     {
       year: "2015",
